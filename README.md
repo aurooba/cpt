@@ -32,6 +32,8 @@ require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 # Usage
 
+Don't see an option you use often and would love for it to be easier too? Open an issue, let's make it happen. :)
+
 ## Basic Usage
 
 ```php
