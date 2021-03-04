@@ -1,0 +1,25 @@
+{
+    "name": "aurooba/cpt",
+    "description": "A small helper class for registering Custom Post Types and their taxonomies in WordPress",
+	"keywords": [
+		"wordpress"
+	],
+    "type": "library",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Aurooba Ahmed",
+            "email": "hey@aurooba.com",
+			"homepage": "https://aurooba.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+		"php": ">=7.0.0"
+	},
+	"autoload": {
+        "psr-4": {
+            "aurooba\\cpt\\": "src"
+        }
+    }
+}
