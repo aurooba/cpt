@@ -18,7 +18,7 @@ Make sure you have composer autoload set up where you are adding package.
 For themes, in your `functions.php` file:
 
 ```php
-require require get_template_directory() . '/vendor/autoload.php';
+require get_template_directory() . '/vendor/autoload.php';
 ```
 
 For plugins, in your main plugin file, near the top:
