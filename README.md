@@ -10,7 +10,7 @@ Requires PHP 7 or later.
 
 # Installation
 
-The easiest way is to nstall this through Composer with:
+The easiest way is to install this through Composer with:
 
 ```bash
 composer require aurooba/cpt
