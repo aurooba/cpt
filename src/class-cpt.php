@@ -33,7 +33,7 @@ class CPT {
 	 *
 	 * @var array
 	 */
-	public $plural_rules = array(
+	public static $plural_rules = array(
 		'/^(ox)$/i'                      => '$1en',
 		'/([m|l])ouse$/i'                => '$1ice',
 		'/(matr|vert|ind)ix|ex$/i'       => '$1ices',
@@ -235,8 +235,8 @@ class CPT {
 		}
 
 		foreach ( self::$plural_rules as $pattern => $rule ) {
-			if ( preg_match( $pattern, $string ) ) {
-				return preg_replace( $pattern, $rule, $string );
+			if ( preg_match( $pattern, $trimmed_name ) ) {
+				return preg_replace( $pattern, $rule, $trimmed_name );
 			}
 		}
 
