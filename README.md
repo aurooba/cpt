@@ -16,7 +16,7 @@ The easiest way is to install this through Composer with:
 composer require aurooba/cpt
 ```
 
-Make sure you have composer autoload set up where you are adding package.
+Make sure you have composer autoload set up where you are adding the package.
 
 For themes, in your `functions.php` file:
 
@@ -112,7 +112,7 @@ function initialize_cpts_and_taxonomies() {
 
 }
 
-add_action( 'init', 'initialize_cpts_and_taxonomies' );
+add_action( 'after_setup_theme', 'initialize_cpts_and_taxonomies' );
 ```
 
 ## Register a Custom Post Type with a different icon
@@ -185,7 +185,7 @@ function initialize_cpts() {
 
 }
 
-add_action( 'init', 'initialize_cpts' );
+add_action( 'after_setup_theme', 'initialize_cpts' );
 
 ```
 
