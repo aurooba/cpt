@@ -92,7 +92,7 @@ function initialize_cpts() {
 
 }
 
-add_action( 'init', 'initialize_cpts' );
+add_action( 'after_setup_theme', 'initialize_cpts' );
 ```
 
 ## Register and associate a basic taxonomy with the Custom Post Type:
