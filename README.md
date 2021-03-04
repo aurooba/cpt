@@ -39,6 +39,7 @@ Have a question about your specific use case? Ask in a [support discussion](http
 ## Basic Usage
 
 ```php
+// Yep feel free to use spaces in your name
 $custom_post_type = new Aurooba\CPT( 'custom post type' );
 ```
 
