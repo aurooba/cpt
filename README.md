@@ -26,9 +26,7 @@ But not yet.
  */
 function initialize_cpts() {
 
-	$resource = new Aurooba\CPT(
-		'resource'
-	);
+	$resource = new Aurooba\CPT( 'resource');
 
 }
 
