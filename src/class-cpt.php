@@ -3,7 +3,7 @@
 namespace Aurooba;
 
 /**
- * A small helper class for registered Custom Post Types and their taxonomies.
+ * A small helper class for registering Custom Post Types and their taxonomies.
  */
 class CPT {
 
@@ -117,7 +117,7 @@ class CPT {
 				'labels'              => $labels,
 				'public'              => true,
 				'show_ui'             => true,
-				'menu_icon'           => '',
+				'menu_icon'           => 'dashicons-screenoptions',
 				'menu_position'       => 21,
 				'show_in_menu'        => true,
 				'show_in_admin_bar'   => true,
@@ -225,7 +225,7 @@ class CPT {
 	 * @param string $name
 	 * @return void
 	 */
-	private function smart_plural( string $name ) {
+	protected function smart_plural( string $name ) {
 		$trimmed_name = trim( $name );
 
 		$exceptions = self::exceptions();
@@ -248,7 +248,7 @@ class CPT {
 	 *
 	 * @return array
 	 */
-	private function exceptions() {
+	protected function exceptions() {
 		return array(
 			'addendum' => 'addenda',
 			'analysis' => 'analyses',
