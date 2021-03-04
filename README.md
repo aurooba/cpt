@@ -11,7 +11,10 @@ Requires PHP 7 or later.
 # Installation
 
 The easiest way is to nstall this through Composer with:
-`composer require aurooba/cpt`
+
+```bash
+composer require aurooba/cpt
+```
 
 Make sure you have composer autoload set up where you are adding package.
 
