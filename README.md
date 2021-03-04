@@ -32,12 +32,14 @@ require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
 
 # Usage
 
-Don't see an option you use often and would love for it to be easier too? Open an issue, let's make it happen. :)
+Don't see an option you use often and would love for it to be easier too? Open an issue or pop it into [the Discussion area](https://github.com/aurooba/cpt/discussions), let's make it happen. :)
+
+Have a question about your specific use case? Ask in a [support discussion](https://github.com/aurooba/cpt/discussions).
 
 ## Basic Usage
 
 ```php
-$custom_post_type = new Aurooba\CPT( 'custom post type');
+$custom_post_type = new Aurooba\CPT( 'custom post type' );
 ```
 
 The class, by default, takes in just one parameter: a singular name, like `resource`. It's smart enough to convert `resource` into `resources`, `country` into `countries`, `potato` into `potatoes`, `goose` into `geese`, and handles some exceptions as well.
@@ -67,7 +69,7 @@ $custom_post_type->add_taxonomy(
 
 The default icon, set up in the class is the [`screenoptions` Dashicon](https://developer.wordpress.org/resource/dashicons/#screenoptions), purely because I like it.
 
-Feel free to pass a different Dashicon to your class as shown in this [different iconexample](#Register-a-custom-post-type-with-a-different-icon).
+Feel free to pass a different Dashicon to your class as shown in this [different icon example](#Register-a-custom-post-type-with-a-different-icon).
 
 You can also pass custom SVG icons, as shown in this [custom svg icon example](#Register-a-custom-post-type-with-a-custom-icon).
 
