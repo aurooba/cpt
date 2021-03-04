@@ -10,10 +10,22 @@ Requires PHP 7 or later.
 
 # Installation
 
-Soon, you'll be able to install this through Composer with:
+The easiest way is to nstall this through Composer with:
 `composer require aurooba/cpt`
 
-But not yet.
+Make sure you have composer autoload set up where you are adding package.
+
+For themes, in your `functions.php` file:
+
+```php
+require require get_template_directory() . '/vendor/autoload.php';
+```
+
+For plugins, in your main plugin file, near the top:
+
+```php
+require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+```
 
 # Usage
 
