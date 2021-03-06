@@ -11,7 +11,12 @@ For complete documentation of Custom Post Type registration, see [https://develo
 
 For complete documentation of Taxonomy registration, see [https://developer.wordpress.org/reference/functions/register_taxonomy/](https://developer.wordpress.org/reference/functions/register_taxonomy/)
 
-Requires PHP 7 or later.
+# Minimum Requirements
+
+- **PHP:** 7.0
+  - PHP 7.4+ is recommended
+- **WordPress:** 5.0
+  - Tested up to WP 5.6.2
 
 # Installation
 
@@ -218,6 +223,10 @@ add_action( 'after_setup_theme', 'initialize_cpts' );
 $resource->add_taxonomy( 'Post Tag' );
 $resource->add_taxonomy( 'Category' );
 ```
+
+# Contributing
+
+Contributors are welcome! Come help extend, test, and improve this package so it becomes an insanely helpful library. Check out [CONTRIBUTING.md](CONTRIBUTING.md) for more information.
 
 # License
 
