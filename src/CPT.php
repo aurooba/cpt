@@ -163,63 +163,71 @@ class CPT {
 			$taxonomy_labels = $labels;
 			$taxonomy_args   = $args;
 
-			if ( ! taxonomy_exists( $taxonomy_name ) ) {
-				//Capitalize the words and create plural term
-				$name   = ucwords( str_replace( '_', ' ', $name ) );
-				$plural = self::smart_plural( $name );
 
-				// Merge provided labels with defaults, preferring the provided labels
-				$labels = array_merge(
-					array(
-						'name'              => _x( $plural, 'taxonomy general name' ),
-						'singular_name'     => _x( $name, 'taxonomy singular name' ),
-						'search_items'      => __( 'Search ' . $plural ),
-						'all_items'         => __( 'All ' . $plural ),
-						'parent_item'       => __( 'Parent ' . $name ),
-						'parent_item_colon' => __( 'Parent ' . $name . ':' ),
-						'edit_item'         => __( 'Edit ' . $name ),
-						'update_item'       => __( 'Update ' . $name ),
-						'add_new_item'      => __( 'Add New ' . $name ),
-						'new_item_name'     => __( 'New ' . $name . ' Name' ),
-						'menu_name'         => __( $plural ),
-					),
-					// Given labels
-					$taxonomy_labels
-				);
+			//Capitalize the words and create plural term
+			$name   = ucwords( str_replace( '_', ' ', $name ) );
+			$plural = self::smart_plural( $name );
 
-				// Merge provided arguements with defaults, preferring the provided arguments
-				$args = array_merge(
-					array(
-						'label'             => $plural,
-						'labels'            => $labels,
-						'public'            => true,
-						'hierarchical'      => true,
-						'query_var'         => true,
-						'show_ui'           => true,
-						'show_in_menu'      => true,
-						'show_admin_column' => true,
-						'show_in_rest'      => true,
-					),
-					// Provided args
-					$taxonomy_args
-				);
+			// Merge provided labels with defaults, preferring the provided labels
+			$labels = array_merge(
+				array(
+					'name'              => _x( $plural, 'taxonomy general name' ),
+					'singular_name'     => _x( $name, 'taxonomy singular name' ),
+					'search_items'      => __( 'Search ' . $plural ),
+					'all_items'         => __( 'All ' . $plural ),
+					'parent_item'       => __( 'Parent ' . $name ),
+					'parent_item_colon' => __( 'Parent ' . $name . ':' ),
+					'edit_item'         => __( 'Edit ' . $name ),
+					'update_item'       => __( 'Update ' . $name ),
+					'add_new_item'      => __( 'Add New ' . $name ),
+					'new_item_name'     => __( 'New ' . $name . ' Name' ),
+					'menu_name'         => __( $plural ),
+				),
+				// Given labels
+				$taxonomy_labels
+			);
 
-				// Add the taxonomy to the post type
-				add_action(
-					'init',
-					function() use ( $taxonomy_name, $post_type_name, $args ) {
+			// Merge provided arguements with defaults, preferring the provided arguments
+			$args = array_merge(
+				array(
+					'label'             => $plural,
+					'labels'            => $labels,
+					'public'            => true,
+					'hierarchical'      => true,
+					'query_var'         => true,
+					'show_ui'           => true,
+					'show_in_menu'      => true,
+					'show_admin_column' => true,
+					'show_in_rest'      => true,
+				),
+				// Provided args
+				$taxonomy_args
+			);
+
+			// Add the taxonomy to the post type
+			add_action(
+				'init',
+				function() use ( $taxonomy_name, $post_type_name, $args ) {
+					if ( ! taxonomy_exists( $taxonomy_name ) ) {
 						register_taxonomy( $taxonomy_name, $post_type_name, $args );
+					} else {
+						self::connect_taxonomy( $taxonomy_name, $post_type_name );
 					}
-				);
-			} else {
-				add_action(
-					'init',
-					function() use ( $taxonomy_name, $post_type_name ) {
-						register_taxonomy_for_object_type( $taxonomy_name, $post_type_name );
-					}
-				);
-			}
+				}
+			);
+
 		}
+	}
+
+	/**
+	 * Connect Taxonomy to Post Type if it already exists
+	 *
+	 * @param string $taxonomy_name
+	 * @param string $post_type_name
+	 * @return void
+	 */
+	public function connect_taxonomy( $taxonomy_name, $post_type_name ) {
+		register_taxonomy_for_object_type( $taxonomy_name, $post_type_name );
 	}
 
 	/**
