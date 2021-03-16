@@ -90,11 +90,14 @@ class CPT {
 		// Merge provided labels with defaults, preferring the provided labels
 		$labels = array_merge(
 			array(
-				'name'               => _x( $plural, 'post type general name' ),
-				'name_admin_bar'     => _x( $name, 'post type singular name' ),
-				'singular_name'      => _x( $name, 'post type singular name' ),
-				'add_new'            => _x( 'Add New', strtolower( $name ) ),
-				'add_new_item'       => __( 'Add New ' . $name ),
+				'name'               => $plural,
+				'name_admin_bar'     => $name,
+				// translators: this is the single name of the post type
+				'singular_name'      => $name,
+				// translators: add new
+				'add_new'            => sprintf( _x( 'Add New', 'add new' ) ),
+				// translators: single post type name, add new
+				'add_new_iem'        => sprintf( _x( 'Add New %s', 'add new' ), $name ),
 				'edit_item'          => __( 'Edit ' . $name ),
 				'update_item'        => __( 'View ' . $name ),
 				'new_item'           => __( 'New ' . $name ),
@@ -178,7 +181,7 @@ class CPT {
 						'update_item'       => __( 'Update ' . $name ),
 						'add_new_item'      => __( 'Add New ' . $name ),
 						'new_item_name'     => __( 'New ' . $name . ' Name' ),
-						'menu_name'         => __( $name ),
+						'menu_name'         => __( $plural ),
 					),
 					// Given labels
 					$taxonomy_labels
